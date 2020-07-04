@@ -1,4 +1,4 @@
-# Fountain City Developer Helper Plugin #
+# Fountain City Developer Tools Plugin #
 
 ## The purpose of this plugin is to make automatic the availability of certain plugins for the admin user only ##
 
@@ -12,7 +12,7 @@ Other functionality is being experimented with as well including an admin tab an
 ### Goals: ###
 
 - To create an options page where you can set which plugins (if at all) you want to auto update.
-- To create an idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins. 
+- To create an idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins.
 
 ### Known Issues: ###
 
