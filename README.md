@@ -4,6 +4,17 @@
 
 ### Status ###
 
-Currently, the plugin simply makes available the plugins if they exist upon admin login. This means the plugins can be left deactivated which is much better for security reasons. Please note that if you schedule any cron jobs for Backupbuddy backups those won't run if you are not logged in.
+The purpose of this plugin is to provide development tools like database migration, remote backups, and debugging tools in a streamlined manner. One of the main functionalities is an automatic activation of BackupBuddy, Wp Migrate Db pro, and Query Monitor (if exist).
+Upon logout the plugins are deactivated.
 
-In the future we want to incorporate some options for enabling and disabling emails to be used in stage environments. There are sketches of this code in the 'not-yet-active' folder (in dev branch).
+Other functionality is being experimented with as well including an admin tab and a dashboard widget. Additionally, there's is some deprecated code to unhook woocommerce emails that we would like to refurbish, that code is currently innactive in the "not-yet-active" folder.
+
+### Goals: ###
+
+- To create an options page where you can set which plugins (if at all) you want to auto update.
+- To create an idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins. 
+
+### Known Issues: ###
+
+- The admin bar link to activate and deactivate BackupBuddy doesn't work because of the nonce value not being correct. (Compare that link to the deactivate link in the plugins page, you could copy that link exactly which would work for 24 hours until there is a new nonce value. Obviously, that is not the real solution.)
+- Sometimes the dev plugins are mysteriously deactivating on page refresh, perhaps there's a logic loophole or an issue with the transient variable not loading correctly.
