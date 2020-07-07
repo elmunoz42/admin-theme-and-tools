@@ -106,7 +106,7 @@ function fc_dashboard_widgets() {
 }
 
 function fc_dev_dashboard() {
-	echo '<p>If you need any support please use our ticketing, it helps us stay organized :-)</p>';
+	echo '<p>If you need any support please use our ticketing system, it helps us stay organized :-)</p>';
 	echo '<ul><li><a href="https://tickets.fountain-city.com/" target="_blank">Create a Support Ticket</a></li>';
 	echo '<ul><li><a href="https://fountaincity.host" target="_blank">Manage your Hosting Subscription</a></li>';
 	echo '<ul><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>';
@@ -126,7 +126,7 @@ function activate_development_plugins(){
 	$backup_buddy = ABSPATH."wp-content/plugins/backupbuddy/backupbuddy.php";
 	$wp_migrate_db_pro = ABSPATH."wp-content/plugins/wp-migrate-db-pro/wp-migrate-db-pro.php";
 	$query_monitor = ABSPATH."wp-content/plugins/query-monitor/query-monitor.php";
-	// If the plugin exists, the current user is an administrator, and the fc_dev_is_logged_in transient hasn't yet been set to true
+	// If the current user is an administrator, and the fc_dev_is_logged_in transient hasn't yet been set to true
 	if (current_user_can('administrator') && $fc_dev_is_logged_in == 0){
 		// If one of our devs is the current user
 		if ($current_user->user_login == 'sebastian' || $current_user->user_login == 'will' || $current_user->user_login == 'carlos' || $current_user->user_login == 'carlos.mk' || $current_user->user_login == 'gray') {
