@@ -14,12 +14,36 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// PHP ALERT
-function js_alert($output){
+// Debugging Functions and Alerts
+function fc_alert($output){
 	echo "<script type='text/javascript'>alert('" . $output . "');</script>";
 }
+
+function fc_debugout($value, $autodump = false)
+{
+    if ($autodump || (empty($value) && $value !== 0 && $value !== "0") || $value === true) {
+        var_dump($value);
+    } else {
+        print_r($value);
+    }
+    die();
+}
+if (!function_exists('write_log')) {
+
+    function fc_write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+
+}
 // Creates FC Dev Tools admin bar Tab
-function add_links_to_admin_bar($admin_bar) {
+add_action( 'admin_bar_menu', 'fc_add_links_to_admin_bar',999 );
+function fc_add_links_to_admin_bar($admin_bar) {
 	// add a parent item
 	$args = array(
 		'id'    => 'fc_dev_tools',
@@ -93,12 +117,11 @@ function add_links_to_admin_bar($admin_bar) {
 	// }
 
 }
-add_action( 'admin_bar_menu', 'add_links_to_admin_bar',999 );
+
 
 // Creates Dashboard Widget
 // NOTE: Add additional links as desired
 add_action('wp_dashboard_setup', 'fc_dashboard_widgets');
-
 function fc_dashboard_widgets() {
 	global $wp_meta_boxes;
 
@@ -115,8 +138,8 @@ function fc_dev_dashboard() {
 
 
 // Auto activate plugins
-add_action('init','activate_development_plugins');
-function activate_development_plugins(){
+add_action('init','fc_activate_development_plugins');
+function fc_activate_development_plugins(){
 
 	$current_user = wp_get_current_user();
 
@@ -150,22 +173,22 @@ function activate_development_plugins(){
 				activate_plugin( $query_monitor );
 				$message .= 'Query Monitor\n';
 			}
-			js_alert($message);
+			fc_alert($message);
 		}
 	}
 }
 
 // NOTE troubleshooting
-// js_alert(get_transient('fc_dev_is_logged_in'));
+// fc_alert(get_transient('fc_dev_is_logged_in'));
 
 // Auto deactivate plugins
-add_action('init','deactivate_development_plugins');
-function deactivate_development_plugins(){
+add_action('init','fc_deactivate_development_plugins');
+function fc_deactivate_development_plugins(){
 	$current_user = wp_get_current_user();
 
 	// set_transient( 'fc_dev_is_logged_in' , 1 , HOUR_IN_SECONDS ); // NOTE TEMPORARY FOR TESTING
 	$fc_dev_is_logged_in = (get_transient('fc_dev_is_logged_in')) ? 1 : 0;
-	// js_alert($fc_dev_is_logged_in);
+	// fc_alert($fc_dev_is_logged_in);
 
 	// If the fc_dev_is_logged_in transient is still 1 ...
 	if($fc_dev_is_logged_in == 1){
@@ -185,7 +208,7 @@ function deactivate_development_plugins(){
 			if (file_exists ($query_monitor)) {
 				deactivate_plugins( $query_monitor );
 			}
-			js_alert('plugins_deactivated');
+			fc_alert('plugins_deactivated');
 		}
 	}
 }
