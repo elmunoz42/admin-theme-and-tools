@@ -69,6 +69,17 @@ function fc_add_links_to_admin_bar($admin_bar) {
 	);
 	$admin_bar->add_node( $args );
 
+	$args = array(
+		'parent' => 'fc_dev_tools',
+		'id'     => 'sync_db',
+		'title'  => 'Sync Database',
+		'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db-pro' ) ),
+		'meta'   => false
+	);
+	$admin_bar->add_node( $args );
+
+
+
 	// NOTE THIS SECTION IS NOT WORKING DUE TO NONCE ISSUE would like to resolve
 
 	// Check if BackupBuddy is active and provide the appropriate links
