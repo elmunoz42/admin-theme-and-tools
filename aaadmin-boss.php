@@ -2,8 +2,8 @@
 <?php
 
 /**
-* Plugin Name: AAA FC Development Tools
-* Description: Fountain City Developer Tools
+* Plugin Name: AAAdmin Boss
+* Description: Admin Theme, Functionality & Dev Tools
 * Author: Carlos Munoz Kampff - Fountain City
 * Version: 0.2
 * License:     GPLv2 or later
