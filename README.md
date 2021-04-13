@@ -13,7 +13,7 @@ Other functionality is being experimented with as well including an admin tab an
 
 - A settings page per plugin dev tutorial adding field for GDS dashboard link for embed.
 - Style login page with logo option.
-- Add menu links to media library, backupbuddy, litespeed, wpmigrate db, query monitor, GDS dashboard, and plugins page.
+- Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.
 - Page for Google Data Studio dashboard
 - Function for displaying queries as tables
 - Activate dev plugins with confirmation popup and deactivate automatically.
