@@ -1,6 +1,6 @@
 # Fountain City Developer Tools Plugin #
 
-## The purpose of this plugin is to make automatic the availability of certain plugins for the admin user only ##
+## The purpose of this plugin is to streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration)##
 
 ### Status ###
 
@@ -11,8 +11,15 @@ Other functionality is being experimented with as well including an admin tab an
 
 ### Goals: ###
 
-- To create an options page where you can set which plugins (if at all) you want to auto update.
-- To create an idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins.
+- A settings page per plugin dev tutorial adding field for GDS dashboard link for embed.
+- Style login page with logo option.
+- Add menu links to media library, backupbuddy, litespeed, wpmigrate db, query monitor, GDS dashboard, and plugins page.
+- Page for Google Data Studio dashboard
+- Function for displaying queries as tables
+- Activate dev plugins with confirmation popup and deactivate automatically.
+- Tell devs if another admin is onsite.
+- Expand debugging functions.
+- Idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins.
 
 ### Known Issues: ###
 
