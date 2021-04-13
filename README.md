@@ -1,4 +1,4 @@
-# Fountain City Developer Tools Plugin #
+# Admin Theme and Tools Plugin #
 
 ## The purpose of this plugin is to streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration)##
 
