@@ -1,6 +1,6 @@
 # Aaadmin Boss - Admin Theme and Tools Plugin #
 
-## The purpose of this plugin is to streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration)##
+## The purpose of this plugin is to brand the backend and login (a bit), streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration)##
 
 ### Status ###
 
