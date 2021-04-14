@@ -28,6 +28,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+
+// NOTE need to test ***********************
 function ab_dev_admin_theme_style() {
     wp_enqueue_style('ab-admin-theme', plugins_url('/public/css/wp-admin-dev.css', __FILE__));
 }
@@ -51,6 +53,7 @@ function ab_load_the_right_style_when_wp_loaded(){
   }
 }
 
+// **********************************
 
 // Debugging Functions and Alerts
 function ab_alert($output){
@@ -79,6 +82,35 @@ if (!function_exists('write_log')) {
     }
 
 }
+
+
+// NOTE found online funciton to display query data need to test https://stackoverflow.com/questions/15251095/display-data-from-sql-database-into-php-html-table
+// function ab_display_data($data) {
+//     $output = "<table>";
+//     foreach($data as $key => $var) {
+//         //$output .= '<tr>';
+//         if($key===0) {
+//             $output .= '<tr>';
+//             foreach($var as $col => $val) {
+//                 $output .= "<td>" . $col . '</td>';
+//             }
+//             $output .= '</tr>';
+//             foreach($var as $col => $val) {
+//                 $output .= '<td>' . $val . '</td>';
+//             }
+//             $output .= '</tr>';
+//         }
+//         else {
+//             $output .= '<tr>';
+//             foreach($var as $col => $val) {
+//                 $output .= '<td>' . $val . '</td>';
+//             }
+//             $output .= '</tr>';
+//         }
+//     }
+//     $output .= '</table>';
+//     echo $output;
+// }
 
 
 
