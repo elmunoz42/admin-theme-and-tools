@@ -29,10 +29,10 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 function ab_dev_admin_theme_style() {
-    wp_enqueue_style('ab-admin-theme', plugins_url('/admin/css/wp-admin-dev.css', __FILE__));
+    wp_enqueue_style('ab-admin-theme', plugins_url('/public/css/wp-admin-dev.css', __FILE__));
 }
 function ab_client_admin_theme_style() {
-    wp_enqueue_style('ab-admin-theme', plugins_url('/admin/css/wp-admin-client.css', __FILE__));
+    wp_enqueue_style('ab-admin-theme', plugins_url('/public/css/wp-admin-client.css', __FILE__));
 }
 add_action( 'wp_loaded', 'ab_load_the_right_style_when_wp_loaded' );
 
