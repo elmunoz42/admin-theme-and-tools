@@ -28,6 +28,31 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+function ab_dev_admin_theme_style() {
+    wp_enqueue_style('ab-admin-theme', plugins_url('/admin/css/wp-admin-dev.css', __FILE__));
+}
+function ab_client_admin_theme_style() {
+    wp_enqueue_style('ab-admin-theme', plugins_url('/admin/css/wp-admin-client.css', __FILE__));
+}
+add_action( 'wp_loaded', 'ab_load_the_right_style_when_wp_loaded' );
+
+function ab_load_the_right_style_when_wp_loaded(){
+  $current_user = wp_get_current_user();
+
+  if (  $current_user->exists() ) {
+
+    if (in_array( 'administrator', (array) $current_user->roles)) {
+      add_action('admin_enqueue_scripts', 'ab_dev_admin_theme_style');
+      add_action('login_enqueue_scripts', 'ab_dev_admin_theme_style');
+    } elseif (in_array( 'client', (array) $current_user->roles)){
+      add_action('admin_enqueue_scripts', 'ab_client_admin_theme_style');
+      add_action('login_enqueue_scripts', 'ab_client_admin_theme_style');
+      // add_action('admin_head', 'cmk_backend_menu_therapist');
+    }
+  }
+}
+
+
 // Debugging Functions and Alerts
 function fc_alert($output){
 	echo "<script type='text/javascript'>alert('" . $output . "');</script>";
@@ -55,6 +80,7 @@ if (!function_exists('write_log')) {
     }
 
 }
+
 
 
 // Creates FC Dev Tools admin bar Tab
