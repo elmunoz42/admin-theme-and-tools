@@ -23,10 +23,41 @@
 // You should have received a copy of the GNU General Public License
 // with this program. If not, visit: https://www.gnu.org/licenses/
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+// disable direct file access
+
+// include plugin dependencies: admin only
+if ( is_admin() ) {
+
+	require_once plugin_dir_path( __FILE__ ) . 'admin/admin-menu.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
+
 }
+
+
+
+// include plugin dependencies: admin and public
+require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
+
+
+
+// default plugin options
+function ab_options_default() {
+
+	return array(
+		'custom_url'     => 'https://wordpress.org/',
+		'custom_title'   => 'Powered by WordPress',
+		'custom_style'   => 'disable',
+		'custom_message' => '<p class="custom-message">My custom message</p>',
+		'custom_footer'  => 'Special message for users',
+		'custom_toolbar' => false,
+		'custom_scheme'  => 'default',
+	);
+
+}
+
 
 
 // NOTE need to test ***********************
