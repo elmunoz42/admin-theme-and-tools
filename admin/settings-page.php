@@ -28,7 +28,7 @@ function ab_display_settings_page() {
 			// output security fields
 			settings_fields( 'ab_options' );
 
-			// output setting sections  
+			// output setting sections
 			do_settings_sections( 'aaadmin-boss' );
 
 			// submit button

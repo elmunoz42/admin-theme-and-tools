@@ -23,12 +23,14 @@
 // You should have received a copy of the GNU General Public License
 // with this program. If not, visit: https://www.gnu.org/licenses/
 
+
 // disable direct file access
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
 
 }
+
 
 // include plugin dependencies: admin only
 if ( is_admin() ) {
@@ -52,13 +54,14 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 function ab_options_default() {
 
 	return array(
-		'custom_url'     => 'https://wordpress.org/',
+		'custom_url'     => 'https://fountaincity.tech/wp-content/uploads/2018/10/fauntain-city-logo.png',
 		'custom_title'   => 'Powered by WordPress',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Special message for users',
 		'custom_toolbar' => false,
 		'custom_scheme'  => 'default',
+		'dashboard_url'  => 'https://datastudio.google.com/'
 	);
 
 }

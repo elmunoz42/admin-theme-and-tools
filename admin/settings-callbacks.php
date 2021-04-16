@@ -29,7 +29,7 @@ function ab_callback_section_admin() {
 
 
 
-// callback: text field
+// callback: text field for logo
 function ab_callback_field_text( $args ) {
 
 	$options = get_option( 'ab_options', ab_options_default() );
@@ -164,5 +164,20 @@ function ab_callback_field_select( $args ) {
 	}
 
 	echo '</select> <label for="ab_options_'. $id .'">'. $label .'</label>';
+
+}
+
+// callback: text field for dashboard
+function ab_callback_field_text2( $args ) {
+
+	$options = get_option( 'ab_options', ab_options_default() );
+
+	$id    = isset( $args['id'] )    ? $args['id']    : '';
+	$label = isset( $args['label'] ) ? $args['label'] : '';
+
+	$value = isset( $options[$id] ) ? sanitize_text_field( $options[$id] ) : '';
+
+	echo '<input id="ab_options_'. $id .'" name="ab_options['. $id .']" type="text" size="40" value="'. $value .'"><br />';
+	echo '<label for="ab_options_'. $id .'">'. $label .'</label>';
 
 }

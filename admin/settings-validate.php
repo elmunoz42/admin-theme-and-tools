@@ -80,6 +80,18 @@ function ab_callback_validate_options( $input ) {
 
 	}
 
+	// custom url
+	if ( isset( $input['dashboard_url'] ) ) {
+
+
+	$input['dashboard_url'] = esc_url( $input['dashboard_url'] );
+
+	$regex_test = '/^https:\/\/datastudio\.google\.com\/embed.*/';
+	$dashboard_url_to_test = $input['dashboard_url'];
+	$input['dashboard_url'] = preg_match($regex_test, $dashboard_url_to_test) ? esc_url($dashboard_url_to_test) : null;
+
+	}
+
 	return $input;
 
 }

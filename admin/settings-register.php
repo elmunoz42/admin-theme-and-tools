@@ -45,7 +45,7 @@ function ab_register_settings() {
 		'ab_section_login',
 		'Customize Login Page',
 		'ab_callback_section_login',
-		'aadmin-boss'
+		'aaadmin-boss'
 	);
 
 	add_settings_section(
@@ -129,6 +129,15 @@ function ab_register_settings() {
 		'aaadmin-boss',
 		'ab_section_admin',
 		[ 'id' => 'custom_scheme', 'label' => 'Default color scheme for new users' ]
+	);
+
+	add_settings_field(
+		'dashboard_url',
+		'Google Data Studio Dashboard URL',
+		'ab_callback_field_text2',
+		'aaadmin-boss',
+		'ab_section_admin',
+		[ 'id' => 'dashboard_url', 'label' => 'Embed URL for the Google Data Studio Dashboard' ]
 	);
 
 }
