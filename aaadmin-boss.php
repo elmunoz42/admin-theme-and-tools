@@ -4,7 +4,7 @@
 /**
 * Plugin Name: AAAdmin Boss
 * Description: Admin Theme, Functionality & Dev Tools
-* Author: Carlos Munoz Kampff - Fountain City
+* Author: Carlos Munoz Kampff - CMK Web & Digital Arts
 * Version: 0.2
 * License:     GPLv2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
@@ -156,7 +156,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// add a parent item
 	$args = array(
 		'id'    => 'ab_dev_tools',
-		'title' => 'FC Dev Tools',
+		'title' => 'Aaadmin Boss',
 		'href'   => 'http://example.com/', // Showing how to add an external link
 	);
 	$admin_bar->add_node( $args );
