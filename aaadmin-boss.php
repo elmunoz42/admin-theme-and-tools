@@ -24,6 +24,11 @@
 // with this program. If not, visit: https://www.gnu.org/licenses/
 
 // disable direct file access
+if ( ! defined( 'ABSPATH' ) ) {
+
+	exit;
+
+}
 
 // include plugin dependencies: admin only
 if ( is_admin() ) {

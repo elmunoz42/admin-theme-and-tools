@@ -25,11 +25,11 @@ function ab_display_settings_page() {
 
 			<?php
 
-			// output security fields  NOTE NEED TO FIX
-			settings_fields( 'myplugin_options' );
+			// output security fields
+			settings_fields( 'ab_options' );
 
-			// output setting sections  NOTE NEED TO FIX
-			do_settings_sections( 'myplugin' );
+			// output setting sections  
+			do_settings_sections( 'aaadmin-boss' );
 
 			// submit button
 			submit_button();
