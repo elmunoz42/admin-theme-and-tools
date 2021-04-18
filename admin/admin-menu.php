@@ -29,12 +29,23 @@ function ab_add_sublevel_menu() {
 
   // NOTE options-general.php is the "Settings" menu tab as parent
 	add_submenu_page(
-		'options-general.php',
+		'aaadmin-boss',
 		'Aaadmin Boss Settings',
-		'Aaadmin Boss',
+		'AB Settings',
 		'manage_options',
 		'aaadmin-boss',
 		'ab_display_settings_page'
+	);
+
+
+// NOTE: NOT WORKING *************************************************
+	add_submenu_page(
+		'aaadmin-boss',
+		'Aaadmin Boss Dashboard',
+		'AB Dashboard',
+		'manage_options',
+		'ab_dashboard',
+		'ab_display_dashboard_page'
 	);
 
 }

@@ -1,4 +1,4 @@
-<?php // aaadmin-boss - Register Settings
+<?php // Aaadmin-boss - Register Settings
 
 
 

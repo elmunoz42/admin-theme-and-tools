@@ -27,7 +27,10 @@ function ab_callback_section_admin() {
 
 }
 
-
+// callback: dashboard sections NOTE: NOT WORKING *********************
+function ab_dashboard_section_dashboard(){
+	echo 'TEST';
+}
 
 // callback: text field for logo
 function ab_callback_field_text( $args ) {
