@@ -44,7 +44,7 @@ function ab_add_sublevel_menu() {
 		'Aaadmin Boss Dashboard',
 		'AB Dashboard',
 		'manage_options',
-		'ab_dashboard',
+		'admin.php?page=dashboard-page',
 		'ab_display_dashboard_page'
 	);
 

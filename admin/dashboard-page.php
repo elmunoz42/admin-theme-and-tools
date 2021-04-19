@@ -17,20 +17,26 @@ function ab_display_dashboard_page() {
 	// check if user is allowed access
 	if ( ! current_user_can( 'manage_options' ) ) return;
 
+
 	?>
 
 	<div class="wrap">
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-<?php
+		<form action="options.php" method="post">
 
-		// output security fields
-		settings_fields( 'ab_options' );
+			<?php
+			// output security fields
+			settings_fields( 'ab_options' );
 
-		// output setting sections
-		do_settings_sections( 'ab_dashboard' );
+			// output setting sections
+			do_settings_sections( 'dashboard-page' );
 
- ?>
+			// submit button
+			// submit_button();
 
+			?>
+
+		</form>
 	</div>
 
 	<?php
