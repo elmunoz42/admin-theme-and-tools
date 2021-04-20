@@ -31,7 +31,7 @@ function ab_add_sublevel_menu() {
 	add_submenu_page(
 		'aaadmin-boss',
 		'Aaadmin Boss Settings',
-		'AB Settings',
+		'Settings',
 		'manage_options',
 		'aaadmin-boss',
 		'ab_display_settings_page'
@@ -42,9 +42,9 @@ function ab_add_sublevel_menu() {
 	add_submenu_page(
 		'aaadmin-boss',
 		'Aaadmin Boss Dashboard',
-		'AB Dashboard',
+		'Dashboard',
 		'manage_options',
-		'admin.php?page=dashboard-page',
+		'dashboard-page',
 		'ab_display_dashboard_page'
 	);
 
