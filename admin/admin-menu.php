@@ -44,8 +44,17 @@ function ab_add_sublevel_menu() {
 		'Aaadmin Boss Dashboard',
 		'Dashboard',
 		'manage_options',
-		'dashboard-page',
+		'ab_dashboard_page',
 		'ab_display_dashboard_page'
+	);
+
+	add_submenu_page(
+		'aaadmin-boss',
+		'GDS Dashboard',
+		'GDS Dashboard',
+		'manage_options',
+		'admin.php?page=gds_dashboard',
+		'ab_display_gds_dashboard_page'
 	);
 
 }

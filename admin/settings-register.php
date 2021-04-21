@@ -55,10 +55,10 @@ function ab_register_settings() {
 		'aaadmin-boss'
 	);
 	add_settings_section(
-		'ab_section_admin',
-		'Customize Admin Area',
+		'ab_section_dashboard',
+		'Dashboard',
 		'ab_callback_section_dashboard',
-		'dashboard-page'
+		'ab_dashboard_page'
 	);
 
 	/*
