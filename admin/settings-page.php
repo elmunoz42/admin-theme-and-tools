@@ -30,7 +30,6 @@ function ab_display_settings_page() {
 
 			// output setting sections
 			do_settings_sections( 'aaadmin-boss' );
-
 			// submit button
 			submit_button();
 

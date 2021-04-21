@@ -31,7 +31,7 @@ function ab_display_dashboard_page() {
 
 			// NOTE: Not working permissions issue **********************************************************************************
 			do_settings_sections( 'ab_section_dashboard' );
-			do_settings_sections( 'aaadmin-boss' );
+			// do_settings_sections( 'aaadmin-boss' );
 
 			// submit button
 			submit_button();

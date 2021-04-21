@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // callback: dashboard sections NOTE: NOT WORKING *********************
-function ab_display_gds_dashboard_page(){
+function ab_callback_section_gds_dashboard(){
 	// Get dashboard url
 	$options = get_option( 'ab_options', ab_options_default() );
 	$value = isset( $options['dashboard_url'] ) ? sanitize_text_field( $options['dashboard_url'] ) : '';

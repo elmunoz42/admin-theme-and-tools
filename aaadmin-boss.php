@@ -38,6 +38,10 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/admin-menu.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/dashboard-page.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/gds-dashboard-page.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/dashboard-callbacks.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/dashboard-callbacks.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/gds-dashboard-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
