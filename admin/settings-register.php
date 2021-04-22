@@ -54,12 +54,6 @@ function ab_register_settings() {
 		'ab_callback_section_admin',
 		'aaadmin-boss'
 	);
-	add_settings_section(
-		'ab_section_dashboard',
-		'Dashboard',
-		'ab_callback_section_dashboard',
-		'ab_dashboard_page'
-	);
 
 	/*
 

@@ -10,36 +10,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-// display the plugin dasbhoard page
-function ab_display_dashboard_page() {
+function ab_display_dashboard() {
 
 	// check if user is allowed access
 	if ( ! current_user_can( 'manage_options' ) ) return;
-
-
 	?>
+		<h1>
+			<?php esc_html_e( 'Google Data Studio Dashboard', 'my-plugin-textdomain' ); ?>
+		</h1><?php
 
-	<div class="wrap">
-		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-
-
-			<?php
-			// output security fields
-			settings_fields( 'ab_options' );
-
-			// output setting sections
-
-			// NOTE: Not working permissions issue **********************************************************************************
-			do_settings_sections( 'ab_section_dashboard' );
-			// do_settings_sections( 'aaadmin-boss' );
-
-			// submit button
-			submit_button();
-			?>
-
-
-	</div>
+		$options = get_option( 'ab_options', ab_options_default() );
+		$value = isset( $options['dashboard_url'] ) ? sanitize_text_field( $options['dashboard_url'] ) : '';
+		echo '<h3><a href="' . $value . '" target="_blank">-> Go to GDS</a></h3> ';
+		echo '<iframe width="1200" height="5000" src="' . $value . '" frameborder="0" style="border:0" allowfullscreen></iframe>';
+		 ?>
 
 	<?php
-
 }
