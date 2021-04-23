@@ -41,9 +41,9 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
+	// require_once plugin_dir_path( __FILE__ ) . 'admin/logged-in-users-alert.php'; NOTE moving this to dashboard widget
 
 }
-
 
 
 // include plugin dependencies: admin and public
@@ -252,12 +252,37 @@ function ab_dashboard_widgets() {
 	wp_add_dashboard_widget('ab_dev_dashboard', 'Fountain City Support and Resources ', 'ab_dev_dashboard');
 }
 
+
+function ab_logged_in_users_report() {
+
+
+$aUsers = get_users([
+	'meta_key' => 'session_tokens',
+	'meta_compare' => 'EXISTS'
+	]);
+
+
+	echo sprintf(
+	'Users online: %s',
+	implode(', ', array_map(function($oUser){
+	$aCurrentSessions = get_user_meta($oUser->ID, 'session_tokens', true);
+	return '<span class="username">' . $oUser->display_name.'</span> (' .
+			implode('; ', array_map(function($aSession) {
+					return $aSession['ip']; // only return the session ips
+			}, $aCurrentSessions)) . ')';
+	}, $aUsers))
+	);
+}
+
+// NOTE Lets make these dynamic fields that get populated from settings page. 
 function ab_dev_dashboard() {
 	echo '<p>If you need any support please use our ticketing system, it helps us stay organized :-)</p>';
-	echo '<ul><li><a href="https://tickets.fountain-city.com/" target="_blank">Create a Support Ticket</a></li>';
+	echo '<ul><li><a href="https://fountaincity.app/" target="_blank">Create a Support Ticket</a></li>';
 	echo '<ul><li><a href="https://fountaincity.host" target="_blank">Manage your Hosting Subscription</a></li>';
 	echo '<ul><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>';
 	echo '<ul><li><a href="https://drive.google.com" target="_blank">Google Drive</a></li></ul>';
+	ab_logged_in_users_report();
+
 }
 
 
