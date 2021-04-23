@@ -26,4 +26,3 @@ Other functionality is being experimented with as well including an admin tab an
 
 - The admin bar link to activate and deactivate BackupBuddy doesn't work because of the nonce value not being correct. (Compare that link to the deactivate link in the plugins page, you could copy that link exactly which would work for 24 hours until there is a new nonce value. Obviously, that is not the real solution.)
 - Sometimes the dev plugins are mysteriously deactivating on page refresh, perhaps there's a logic loophole or an issue with the transient variable not loading correctly.
-- I'm having an issue with the dashboard page. It's saying "Sorry, you are not allowed to access this page." Need to figure out the issue.

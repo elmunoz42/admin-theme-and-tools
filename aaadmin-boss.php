@@ -56,7 +56,7 @@ function ab_options_default() {
 
 	return array(
 		'custom_url'     => 'https://fountaincity.tech/wp-content/uploads/2018/10/fauntain-city-logo.png',
-		'custom_title'   => 'Powered by WordPress',
+		'custom_title'   => 'Powered by WordPress and Fountain City',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Special message for users',
@@ -160,7 +160,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// add a parent item
 	$args = array(
 		'id'    => 'ab_dev_tools',
-		'title' => 'Aaadmin Boss',
+		'title' => 'AB Shortcuts',
 		'href'   => 'http://example.com/', // Showing how to add an external link
 	);
 	$admin_bar->add_node( $args );
