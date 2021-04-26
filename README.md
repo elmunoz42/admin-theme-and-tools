@@ -15,7 +15,7 @@ Other functionality is being experimented with as well including an admin tab an
 | ------------- |:-------------|
 |QA|A settings page per plugin dev tutorial adding field for GDS dashboard link for embed.|
 |QA|Page for Google Data Studio dashboard|
-|New|Style login page with logo option|
+|New|Style login page with logo option, unfortunately tutorial shows how to customize the logo url but not the logo itself. See from awakenings project.|
 |In Process|Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.|
 |New|Function for displaying queries as tables|
 |Open|Activate dev plugins with confirmation popup and deactivate automatically.|
