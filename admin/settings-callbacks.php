@@ -126,6 +126,7 @@ function ab_options_select() {
 	return array(
 
 		'default'   => 'Default',
+		'fountain'  => 'Fountain',
 		'light'     => 'Light',
 		'blue'      => 'Blue',
 		'coffee'    => 'Coffee',

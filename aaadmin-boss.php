@@ -31,6 +31,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
+// Add custom color scheme
+function additional_admin_color_schemes() {
+  //Get the theme directory
+  // $theme_dir = get_template_directory_uri();
+	//
+  // //Ocean
+	$plugin_dir = plugin_dir_url( dirname( __FILE__ ) ) ;
+  wp_admin_css_color( 'fountain', __( 'Fountain' ),
+    $plugin_dir . 'public/css/colors.css',
+    array( '#2a3db6', '#00ffd5', '#313541', '#ffffff' )
+  );
+
+}
+add_action('admin_init', 'additional_admin_color_schemes');
+
 
 // include plugin dependencies: admin only
 if ( is_admin() ) {
@@ -274,7 +289,7 @@ $aUsers = get_users([
 	);
 }
 
-// NOTE Lets make these dynamic fields that get populated from settings page. 
+// NOTE Lets make these dynamic fields that get populated from settings page.
 function ab_dev_dashboard() {
 	echo '<p>If you need any support please use our ticketing system, it helps us stay organized :-)</p>';
 	echo '<ul><li><a href="https://fountaincity.app/" target="_blank">Create a Support Ticket</a></li>';

@@ -21,6 +21,7 @@ function ab_display_dashboard() {
 
 		$options = get_option( 'ab_options', ab_options_default() );
 		$value = isset( $options['dashboard_url'] ) ? sanitize_text_field( $options['dashboard_url'] ) : '';
+		// echo ab_get_dashboard_url();
 		echo '<h3><a href="' . $value . '" target="_blank">-> Open in GDS</a></h3> ';
 		echo '<iframe width="1200" height="5000" src="' . $value . '" frameborder="0" style="border:0" allowfullscreen></iframe>';
 		 ?>
