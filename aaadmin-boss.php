@@ -39,10 +39,10 @@ function additional_admin_color_schemes() {
   // //Ocean
 	$plugin_dir = plugin_dir_url( dirname( __FILE__ ) ) ;
   wp_admin_css_color( 'fountain', __( 'Fountain' ),
-    $plugin_dir . 'public/css/colors.css',
-    array( '#2a3db6', '#00ffd5', '#313541', '#ffffff' )
+    $plugin_dir . 'aaadmin-boss/public/css/colors.css',
+    array( '#2a3db6', '#00ffd5', '#00e6c0', '#313541' )
   );
-
+  // var_dump($plugin_dir . 'aaadmin-boss/public/css/colors.css');die;
 }
 add_action('admin_init', 'additional_admin_color_schemes');
 
