@@ -189,12 +189,12 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// NOTE: THIS SECTION I WAS TRYING TO DEACTIVATE / ACTIVATE PLUGIN BY LINK AND IT DID NOT WORK BECAUSE IT WOULD SAY LINK EXPIRED
 		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s'), 'action') );
 		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce1');
-
+        // $url = wp_nonce_url(admin_url('plugins.php?action=activate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce2');
 
 	// Check if BackupBuddy is active and provide the appropriate links
 	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
-
-		$url = wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&') , 'deactivate_bu_buddy', 'my_nonce1');
+        
+		$url = admin_url('plugins.php?s=backupbuddy&plugin_status=all');
 	    $args = array(
 	        'parent' => 'ab_dev_tools',
 	        'id'     => 'deactivate_bu_buddy',
@@ -204,7 +204,8 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	    );
 			$admin_bar->add_node( $args );
 	} else {
-		$url = wp_nonce_url(admin_url('plugins.php?action=activate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce2');
+		
+		$url = admin_url('plugins.php?s=backupbuddy&plugin_status=all');
 		$args = array(
 				'parent' => 'ab_dev_tools',
 				'id'     => 'activate_bu_buddy',
@@ -244,22 +245,22 @@ function ab_add_links_to_admin_bar($admin_bar) {
 }
 
 
-// NOTE: FOUND THIS ONLINE, WAY TO ACTIVATE PLUGIN
-// function run_activate_plugin( $plugin ) {
-//     $current = get_option( 'active_plugins' );
-//     $plugin = plugin_basename( trim( $plugin ) );
+// NOTE: FOUND THIS ONLINE, WAY TO ACTIVATE PLUGIN Could create a special admin page where when you go there it activates dev tools.
+function run_activate_plugin( $plugin ) {
+    $current = get_option( 'active_plugins' );
+    $plugin = plugin_basename( trim( $plugin ) );
 
-//     if ( !in_array( $plugin, $current ) ) {
-//         $current[] = $plugin;
-//         sort( $current );
-//         do_action( 'activate_plugin', trim( $plugin ) );
-//         update_option( 'active_plugins', $current );
-//         do_action( 'activate_' . trim( $plugin ) );
-//         do_action( 'activated_plugin', trim( $plugin) );
-//     }
+    if ( !in_array( $plugin, $current ) ) {
+        $current[] = $plugin;
+        sort( $current );
+        do_action( 'activate_plugin', trim( $plugin ) );
+        update_option( 'active_plugins', $current );
+        do_action( 'activate_' . trim( $plugin ) );
+        do_action( 'activated_plugin', trim( $plugin) );
+    }
 
-//     return null;
-// }
+    return null;
+}
 // run_activate_plugin( 'akismet/akismet.php' );
 
 
