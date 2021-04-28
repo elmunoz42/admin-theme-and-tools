@@ -115,28 +115,6 @@ function ab_alert($output){
 	echo "<script type='text/javascript'>alert('" . $output . "');</script>";
 }
 
-function ab_debugout($value, $autodump = false)
-{
-    if ($autodump || (empty($value) && $value !== 0 && $value !== "0") || $value === true) {
-        var_dump($value);
-    } else {
-        print_r($value);
-    }
-    die();
-}
-if (!function_exists('write_log')) {
-
-    function ab_write_log($log) {
-        if (true === WP_DEBUG) {
-            if (is_array($log) || is_object($log)) {
-                error_log(print_r($log, true));
-            } else {
-                error_log($log);
-            }
-        }
-    }
-
-}
 
 
 // NOTE found online funciton to display query data need to test https://stackoverflow.com/questions/15251095/display-data-from-sql-database-into-php-html-table
@@ -176,7 +154,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	$args = array(
 		'id'    => 'ab_dev_tools',
 		'title' => 'AB Shortcuts',
-		'href'   => 'http://example.com/', // Showing how to add an external link
+		'href'   => '#', 
 	);
 	$admin_bar->add_node( $args );
 	$args = array(
@@ -208,21 +186,25 @@ function ab_add_links_to_admin_bar($admin_bar) {
 
 
 
-	// NOTE THIS SECTION IS NOT WORKING DUE TO NONCE ISSUE would like to resolve
+	// NOTE: THIS SECTION I WAS TRYING TO DEACTIVATE / ACTIVATE PLUGIN BY LINK AND IT DID NOT WORK BECAUSE IT WOULD SAY LINK EXPIRED
+		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s'), 'action') );
+		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce1');
+
 
 	// Check if BackupBuddy is active and provide the appropriate links
 	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
-			$url = wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce1');
+
+		$url = wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&') , 'deactivate_bu_buddy', 'my_nonce1');
 	    $args = array(
 	        'parent' => 'ab_dev_tools',
 	        'id'     => 'deactivate_bu_buddy',
 	        'title'  => 'Deactivate BU Buddy',
-	        'href'   => esc_url( (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s'), 'action') ) ),
+	        'href'   => esc_url( $url ),
 	        'meta'   => false
 	    );
 			$admin_bar->add_node( $args );
 	} else {
-		$url = wp_nonce_url(admin_url('plugins.php?action=activate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'deactivate_bu_buddy', 'my_nonce2');
+		$url = wp_nonce_url(admin_url('plugins.php?action=activate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce2');
 		$args = array(
 				'parent' => 'ab_dev_tools',
 				'id'     => 'activate_bu_buddy',
@@ -232,6 +214,10 @@ function ab_add_links_to_admin_bar($admin_bar) {
 		);
 		$admin_bar->add_node( $args );
 	}
+	
+	
+	
+
 
 	// Check if WP Migrate DB Pro is active and provide the appropriate links
 	// if (is_plugin_active('wp-migrate-db-pro/wp-migrate-db-pro.php')) {
@@ -256,6 +242,25 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// }
 
 }
+
+
+// NOTE: FOUND THIS ONLINE, WAY TO ACTIVATE PLUGIN
+// function run_activate_plugin( $plugin ) {
+//     $current = get_option( 'active_plugins' );
+//     $plugin = plugin_basename( trim( $plugin ) );
+
+//     if ( !in_array( $plugin, $current ) ) {
+//         $current[] = $plugin;
+//         sort( $current );
+//         do_action( 'activate_plugin', trim( $plugin ) );
+//         update_option( 'active_plugins', $current );
+//         do_action( 'activate_' . trim( $plugin ) );
+//         do_action( 'activated_plugin', trim( $plugin) );
+//     }
+
+//     return null;
+// }
+// run_activate_plugin( 'akismet/akismet.php' );
 
 
 // Creates Dashboard Widget
