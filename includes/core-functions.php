@@ -43,7 +43,7 @@ function ab_custom_login_title( $title ) {
 	return $title;
 
 }
-add_filter( 'login_headertitle', 'ab_custom_login_title' );
+add_filter( 'login_headertext', 'ab_custom_login_title' );
 
 
 

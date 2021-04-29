@@ -71,7 +71,7 @@ function ab_options_default() {
 
 	return array(
 		'custom_url'     => 'https://fountaincity.tech/wp-content/uploads/2018/10/fauntain-city-logo.png',
-		'custom_title'   => 'Powered by WordPress and Fountain City',
+		'custom_title'   => 'Customized Wordpress Application',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Special message for users',

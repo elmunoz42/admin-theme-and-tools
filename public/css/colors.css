@@ -8,9 +8,9 @@
  * Button mixin- creates 3d-ish button effect with correct
  * highlights/shadows, based on a base color.
  */
- /* '#2a3db6', '#00ffd5', '#00e6c0', '#313541' */
+ /* '#2a3db6', '#00ffd5', '#00e6c0', '#313541' modification to gray => #31354108 */
 html {
-  background: #f0f0f1;
+  background: #31354108;
 }
 
 /* Links */
