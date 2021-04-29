@@ -168,12 +168,40 @@ function ab_add_links_to_admin_bar($admin_bar) {
 
 	$args = array(
 		'parent' => 'ab_dev_tools',
+		'id'     => 'all-pages',
+		'title'  => 'All Pages',
+		'href'   => esc_url( admin_url( 'edit.php?post_type=page' ) ),
+		'meta'   => false
+	);
+	$admin_bar->add_node( $args );
+
+	$args = array(
+		'parent' => 'ab_dev_tools',
+		'id'     => 'all-posts',
+		'title'  => 'All Posts',
+		'href'   => esc_url( admin_url( 'edit.php?post_type=post' ) ),
+		'meta'   => false
+	);
+	$admin_bar->add_node( $args );
+
+	$args = array(
+		'parent' => 'ab_dev_tools',
 		'id'     => 'plugins',
 		'title'  => 'Plugins',
 		'href'   => esc_url( admin_url( 'plugins.php' ) ),
 		'meta'   => false
 	);
 	$admin_bar->add_node( $args );
+    if (is_plugin_active('backupbuddy/backupbuddy.php')) {
+	$args = array(
+		'parent' => 'ab_dev_tools',
+		'id'     => 'backup',
+		'title'  => 'BackupBuddy',
+		'href'   => esc_url( admin_url( 'admin.php?page=pb_backupbuddy_backup' ) ),
+		'meta'   => false
+	);
+	$admin_bar->add_node( $args );
+	}
 
 	$args = array(
 		'parent' => 'ab_dev_tools',
