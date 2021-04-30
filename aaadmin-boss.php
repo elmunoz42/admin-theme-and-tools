@@ -56,6 +56,7 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/home-dash-widget.php';
 	// require_once plugin_dir_path( __FILE__ ) . 'admin/logged-in-users-alert.php'; NOTE moving this to dashboard widget
 
 }

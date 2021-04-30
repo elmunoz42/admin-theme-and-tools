@@ -1,4 +1,6 @@
 /* AB - Custom Login Styles */
+/* '#2a3db6', '#00ffd5', '#00e6c0', '#313541' modification to gray => #31354108 */
+
 
 body.login { background-color: #2a3db6; color: #00ffd5;}
 .login #backtoblog a, .login #nav a  {
