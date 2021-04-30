@@ -31,7 +31,7 @@ $aUsers = get_users([
 
 
 	echo sprintf(
-	'Users online: %s',
+	'Logged in Users: %s',
 	implode(', ', array_map(function($oUser){
 	$aCurrentSessions = get_user_meta($oUser->ID, 'session_tokens', true);
 	return '<span class="username">' . $oUser->display_name.'</span> (' .
