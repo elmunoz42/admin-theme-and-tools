@@ -48,6 +48,7 @@ function ab_dev_dashboard() {
 	echo '<ul><li><a href="https://fountaincity.app/" target="_blank">Create a Support Ticket</a></li>';
 	echo '<ul><li><a href="https://fountaincity.host" target="_blank">Manage your Hosting Subscription</a></li>';
 	echo '<ul><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>';
+	echo '<ul><li><a href="https://search.google.com" target="_blank">Google Search Console</a></li>';
 	echo '<ul><li><a href="https://drive.google.com" target="_blank">Google Drive</a></li></ul>';
 	ab_logged_in_users_report();
 
