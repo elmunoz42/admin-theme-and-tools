@@ -75,9 +75,9 @@ function ab_options_default() {
 		'custom_title'   => 'Customized Wordpress Application',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
-		'custom_footer'  => 'Special message for users',
+		'custom_footer'  => 'Customized Wordpress Application by Fountain City',
 		'custom_toolbar' => false,
-		'custom_scheme'  => 'default',
+		'custom_scheme'  => 'fountain',
 		'dashboard_url'  => 'https://datastudio.google.com/'
 	);
 
