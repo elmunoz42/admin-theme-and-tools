@@ -88,7 +88,7 @@ function ab_register_settings() {
 
 	add_settings_field(
 		'custom_style',
-		'Custom Style',
+		'Custom Login Page Style',
 		'ab_callback_field_radio',
 		'aaadmin-boss',
 		'ab_section_login',
