@@ -192,3 +192,31 @@ function ab_get_dashboard_url( $url ) {
 	return $url;
 
 }
+
+// NOTE found online funciton to display query data need to test https://stackoverflow.com/questions/15251095/display-data-from-sql-database-into-php-html-table
+function ab_display_data($data) {
+    $output = "<table>";
+    foreach($data as $key => $var) {
+        //$output .= '<tr>';
+        if($key===0) {
+            $output .= '<tr>';
+            foreach($var as $col => $val) {
+                $output .= "<td>" . $col . '</td>';
+            }
+            $output .= '</tr>';
+            foreach($var as $col => $val) {
+                $output .= '<td>' . $val . '</td>';
+            }
+            $output .= '</tr>';
+        }
+        else {
+            $output .= '<tr>';
+            foreach($var as $col => $val) {
+                $output .= '<td>' . $val . '</td>';
+            }
+            $output .= '</tr>';
+        }
+    }
+    $output .= '</table>';
+    echo $output;
+}

@@ -75,7 +75,7 @@ function ab_options_default() {
 		'custom_title'   => 'Customized Wordpress Application',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
-		'custom_footer'  => 'Customized Wordpress Application by Fountain City',
+		'custom_footer'  => 'Customized Wordpress Application by Fountain City, Inc (an open source project)',
 		'custom_toolbar' => false,
 		'custom_scheme'  => 'fountain',
 		'dashboard_url'  => 'https://datastudio.google.com/'
@@ -115,36 +115,6 @@ function ab_load_the_right_style_when_wp_loaded(){
 function ab_alert($output){
 	echo "<script type='text/javascript'>alert('" . $output . "');</script>";
 }
-
-
-
-// NOTE found online funciton to display query data need to test https://stackoverflow.com/questions/15251095/display-data-from-sql-database-into-php-html-table
-// function ab_display_data($data) {
-//     $output = "<table>";
-//     foreach($data as $key => $var) {
-//         //$output .= '<tr>';
-//         if($key===0) {
-//             $output .= '<tr>';
-//             foreach($var as $col => $val) {
-//                 $output .= "<td>" . $col . '</td>';
-//             }
-//             $output .= '</tr>';
-//             foreach($var as $col => $val) {
-//                 $output .= '<td>' . $val . '</td>';
-//             }
-//             $output .= '</tr>';
-//         }
-//         else {
-//             $output .= '<tr>';
-//             foreach($var as $col => $val) {
-//                 $output .= '<td>' . $val . '</td>';
-//             }
-//             $output .= '</tr>';
-//         }
-//     }
-//     $output .= '</table>';
-//     echo $output;
-// }
 
 
 
