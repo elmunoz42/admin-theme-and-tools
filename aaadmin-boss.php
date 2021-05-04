@@ -57,6 +57,7 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/home-dash-widget.php';
+	require_once plugin_dir_path( __FILE__ ) . 'admin/dev-tools-page.php';
 	// require_once plugin_dir_path( __FILE__ ) . 'admin/logged-in-users-alert.php'; NOTE moving this to dashboard widget
 
 }
@@ -204,7 +205,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 			$admin_bar->add_node( $args );
 	} else {
 		
-		$url = admin_url('plugins.php?s=backupbuddy&plugin_status=all');
+		$url = admin_url('options-general.php?page=dev-tools');
 		$args = array(
 				'parent' => 'ab_dev_tools',
 				'id'     => 'activate_bu_buddy',
@@ -244,23 +245,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 }
 
 
-// NOTE: FOUND THIS ONLINE, WAY TO ACTIVATE PLUGIN Could create a special admin page where when you go there it activates dev tools.
-function run_activate_plugin( $plugin ) {
-    $current = get_option( 'active_plugins' );
-    $plugin = plugin_basename( trim( $plugin ) );
 
-    if ( !in_array( $plugin, $current ) ) {
-        $current[] = $plugin;
-        sort( $current );
-        do_action( 'activate_plugin', trim( $plugin ) );
-        update_option( 'active_plugins', $current );
-        do_action( 'activate_' . trim( $plugin ) );
-        do_action( 'activated_plugin', trim( $plugin) );
-    }
-
-    return null;
-}
-// run_activate_plugin( 'akismet/akismet.php' );
 
 
 // // Creates Dashboard Widget

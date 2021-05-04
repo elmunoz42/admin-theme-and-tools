@@ -47,5 +47,14 @@ function ab_add_toplevel_menu() {
 		'dashicons-schedule',
 		1
 	);
+
+	add_submenu_page(
+		'options-general.php',
+		'Activate Dev Tools',
+		'Activate Dev Tools',
+		'manage_options',
+		'dev-tools',
+		'ab_display_dev_tools'
+	);
 }
 add_action( 'admin_menu', 'ab_add_toplevel_menu' );
