@@ -16,11 +16,11 @@ Other functionality is being experimented with as well including an admin tab an
 |QA|A settings page per plugin dev tutorial adding field for GDS dashboard link for embed||
 |QA|Page for Google Data Studio dashboard||
 |In Progress|Style login page with logo option, unfortunately tutorial shows how to customize the logo url but not the logo itself. See from awakenings project|Need to make to figure out a solution for uploading the logo and displaying it programmatically.|
-|In Process|Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.||
-|New|Function for displaying queries as tables||
-|Open|Activate dev plugins with confirmation popup and deactivate automatically.||
-|In Process|Tell devs if another admin is onsite||
-|In Process|Expand debugging functions||
+|In Progress|Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.||
+|In Progress|Function for displaying queries as tables||
+|In Progress|Activate dev plugins with confirmation popup and deactivate automatically.|Currently you can activate backup buddy and it will update you that changes where made in the dev tools page (available in settins page and shortcut). Need to change function to also deactivate the plugin.|
+|In Progress|Tell devs if another admin is onsite||
+|In Progress|Expand debugging functions||
 |New|Idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins||
 |New|Add an integration with the redmine ticketing system api to create a ticket right from the wp dashboard perhaps following this forum discussion: https://www.redmine.org/boards/2/topics/16260 ||
 
