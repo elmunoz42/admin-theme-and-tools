@@ -18,7 +18,7 @@ Other functionality is being experimented with as well including an admin tab an
 |In Progress|Style login page with logo option, unfortunately tutorial shows how to customize the logo url but not the logo itself. See from awakenings project|Need to make to figure out a solution for uploading the logo and displaying it programmatically.|
 |In Progress|Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.||
 |In Progress|Function for displaying queries as tables||
-|In Progress|Activate dev plugins with confirmation popup and deactivate automatically.|Currently you can activate backup buddy and it will update you that changes where made in the dev tools page (available in settins page and shortcut). Need to change function to also deactivate the plugin.|
+|In Progress|Activate dev plugins with confirmation popup and deactivate automatically.|Currently you can activate backup buddy and it will update you that changes where made in the dev tools page (available in settins page and shortcut). Function now also deactivates the plugin.|
 |In Progress|Tell devs if another admin is onsite||
 |In Progress|Expand debugging functions||
 |New|Idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins||
