@@ -83,7 +83,7 @@ function ab_register_settings() {
 		'ab_callback_field_text',
 		'aaadmin-boss',
 		'ab_section_login',
-		[ 'id' => 'custom_title', 'label' => 'Custom title attribute for the logo link' ]
+		[ 'id' => 'custom_title', 'label' => 'Custom title below the logo' ]
 	);
 
 	add_settings_field(
