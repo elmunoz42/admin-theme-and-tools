@@ -222,20 +222,28 @@ function ab_display_data($data) {
 }
 
 
+
+
 // NOTE: FOUND THIS ONLINE, WAY TO ACTIVATE PLUGIN Could create a special admin page where when you go there it activates dev tools.
-function ab_run_activate_plugin( $plugin ) {
+function ab_run_activate_deactivate_plugin( $plugin ) {
     $current = get_option( 'active_plugins' );
     $plugin = plugin_basename( trim( $plugin ) );
-
+    // var_dump($current);
     if ( !in_array( $plugin, $current ) ) {
         $current[] = $plugin;
         sort( $current );
         do_action( 'activate_plugin', trim( $plugin ) );
         update_option( 'active_plugins', $current );
-        do_action( 'activate_' . trim( $plugin ) );
-        do_action( 'activated_plugin', trim( $plugin) );
-    }
-
-    return null;
+        // do_action( 'activate_' . trim( $plugin ) );  // NOTE: DON't know why this is here so grayed out
+        // do_action( 'activated_plugin', trim( $plugin) );   // NOTE: DON't know why this is here so grayed out
+	} else {
+        $values = [trim( $plugin )]; // make it an array
+		$current = array_diff($current, $values);
+		// var_dump($current);
+		do_action( 'deactivate_plugin', trim( $plugin ) );
+		update_option( 'active_plugins', $current );
+	}
+    // var_dump($current);
+    return;
 }
 // ab_run_activate_plugin( 'akismet/akismet.php' ); EXAMPLE

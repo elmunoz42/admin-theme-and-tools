@@ -194,7 +194,7 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// Check if BackupBuddy is active and provide the appropriate links
 	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
         
-		$url = admin_url('plugins.php?s=backupbuddy&plugin_status=all');
+		$url = admin_url('options-general.php?page=dev-tools');
 	    $args = array(
 	        'parent' => 'ab_dev_tools',
 	        'id'     => 'deactivate_bu_buddy',

@@ -50,8 +50,8 @@ function ab_add_toplevel_menu() {
 
 	add_submenu_page(
 		'options-general.php',
-		'Activate Dev Tools',
-		'Activate Dev Tools',
+		'Toggle Dev Tools',
+		'Toggle Dev Tools',
 		'manage_options',
 		'dev-tools',
 		'ab_display_dev_tools'
