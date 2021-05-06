@@ -28,15 +28,7 @@ function ab_add_toplevel_menu() {
 
 	*/
   // NOTE $position 0 means very top
-	add_menu_page(
-		'Aaadmin Boss Settings',
-		'Aaadmin Boss',
-		'manage_options',
-		'aaadmin-boss',
-		'ab_display_settings_page',
-		'dashicons-admin-generic',
-		0
-	);
+
 
 	add_menu_page(
 		'GDS Dashboard',
@@ -45,11 +37,20 @@ function ab_add_toplevel_menu() {
 		'gds-dashboard',
 		'ab_display_dashboard',
 		'dashicons-schedule',
-		1
+		0
 	);
 
 	add_submenu_page(
 		'options-general.php',
+		'Aaadmin Boss Settings',
+		'Aaadmin Boss',
+		'manage_options',
+		'aaadmin-boss',
+		'ab_display_settings_page'
+	);
+
+	add_submenu_page(
+		'tools.php',
 		'Toggle Dev Tools',
 		'Toggle Dev Tools',
 		'manage_options',
@@ -58,3 +59,21 @@ function ab_add_toplevel_menu() {
 	);
 }
 add_action( 'admin_menu', 'ab_add_toplevel_menu' );
+
+// Add link to settings page from plugins page view. Here's documentation on plugin action links which is used in the filter below... https://developer.wordpress.org/reference/hooks/plugin_action_links_plugin_file/
+
+function ab_settings_and_repo_link( $links ) {
+	// Build and escape the URL.
+	$url = esc_url("/wp-admin/options-general.php?page=aaadmin-boss");
+	$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+	$url2 = esc_url("https://github.com/elmunoz42/admin-theme-and-tools");
+	$repository_link = "<a href='$url2'>" . 'Github ' . __('Repository')  . '</a>';
+	// Adds the link to the end of the array.
+	array_push(
+		$links,
+		$settings_link,
+		$repository_link
+	);
+	return $links;
+}
+add_filter( 'plugin_action_links_aaadmin-boss/aaadmin-boss.php', 'ab_settings_and_repo_link' );
