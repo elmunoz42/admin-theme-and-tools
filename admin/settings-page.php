@@ -23,7 +23,12 @@ function ab_display_settings_page() {
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 		<form action="options.php" method="post">
 
+		 <input type="file" name="logo" />
+         <button class="button wpse-228085-upload">Upload</button>
+
 			<?php
+
+           
 
 			// output security fields
 			settings_fields( 'ab_options' );
