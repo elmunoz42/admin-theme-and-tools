@@ -21,8 +21,9 @@ Other functionality is being experimented with as well including an admin tab an
 |In Progress|Activate dev plugins with confirmation popup and deactivate automatically.|Currently you can activate backup buddy and it will update you that changes where made in the dev tools page (available in settins page and shortcut). Function now also deactivates the plugin.|
 |In Progress|Tell devs if another admin is onsite|Currently you can see who is logged in in the regular dashboard widget, but a popup would be a good improvement.|
 |In Progress|Expand debugging functions||
-|New|Idle functionality where a popup comes up and checks if you are still working otherwise it deactivates the dev plugins||
+|New|Idle functionality where a popup comes up and checks if you are still working and gives you a cta to deactivate dev plugins||
 |New|Add an integration with the redmine ticketing system api to create a ticket right from the wp dashboard perhaps following this forum discussion: https://www.redmine.org/boards/2/topics/16260 ||
+|New|Create settings fields for dashboard widget links||
 
 ### Known Issues: ###
 
