@@ -26,3 +26,9 @@ Admin Boss is a Wordpress Plugin that improves the website administrator's quali
 
 - The admin bar link to activate and deactivate BackupBuddy doesn't work because of the nonce value not being correct. (Compare that link to the deactivate link in the plugins page, you could copy that link exactly which would work for 24 hours until there is a new nonce value. Obviously, that is not the real solution.) In the meantime I've made it so that the link just takes you to the plugins page search for backup buddy so deactivation is one click away. One possible solution is to create an admin page that has the new script to activate plugins saves a transient token and then when you return deactivates the "dev tools" plugins... so "activate dev tools", "deactivate dev tools". And in the settings page you could add the dev tools plugins that you want to be part of this. 
 - Sometimes the dev plugins are mysteriously deactivating on page refresh, perhaps there's a logic loophole or an issue with the transient variable not loading correctly.
+
+### Installation: ###
+
+1 - Download the zip file.
+2 - Upload in the add a plugin page in your Wordpress installation.
+3 - If you are tracking the whole Wordpress site in a repository, you can either have the plugins repo be a submodule (recommended) or delete the .git folder and update it manually (easier but more laboreous).
