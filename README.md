@@ -2,14 +2,11 @@
 
 ## The purpose of this plugin is to brand the backend and login (a bit), streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration) ##
 
-### Status ###
+### Plugin Goals and Description ###
 
-The purpose of this plugin is to provide development tools like database migration, remote backups, and debugging tools in a streamlined manner. One of the main functionalities is an automatic activation of BackupBuddy, Wp Migrate Db pro, and Query Monitor (if exist).
-Upon logout the plugins are deactivated.
+This project is to create a simple but effective Wordpress Plugin that improves administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Finally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and activating/deactivating development plugins.
 
-Other functionality is being experimented with as well including an admin tab and a dashboard widget. Additionally, there's is some deprecated code to unhook woocommerce emails that we would like to refurbish, that code is currently innactive in the "not-yet-active" folder.
-
-### Goals: ###
+### Objectives: ###
 
 | Status       | Description   |Note    |
 | ------------- |:-------------|:-------|
