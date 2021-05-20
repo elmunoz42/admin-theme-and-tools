@@ -159,32 +159,32 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	$args = array(
 		'parent' => 'ab_dev_tools',
 		'id'     => 'plugins',
-		'title'  => 'Plugins',
+		'title'  => 'All Plugins',
 		'href'   => esc_url( admin_url( 'plugins.php' ) ),
 		'meta'   => false
 	);
 	$admin_bar->add_node( $args );
-    if (is_plugin_active('backupbuddy/backupbuddy.php')) {
-	$args = array(
-		'parent' => 'ab_dev_tools',
-		'id'     => 'backup',
-		'title'  => 'BackupBuddy',
-		'href'   => esc_url( admin_url( 'admin.php?page=pb_backupbuddy_backup' ) ),
-		'meta'   => false
-	);
-	$admin_bar->add_node( $args );
+	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
+		$args = array(
+			'parent' => 'ab_dev_tools',
+			'id'     => 'backup',
+			'title'  => 'BackupBuddy',
+			'href'   => esc_url( admin_url( 'admin.php?page=pb_backupbuddy_backup' ) ),
+			'meta'   => false
+		);
+		$admin_bar->add_node( $args );
 	}
-
-	$args = array(
-		'parent' => 'ab_dev_tools',
-		'id'     => 'sync_db',
-		'title'  => 'Sync Database',
-		'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db-pro' ) ),
-		'meta'   => false
-	);
-	$admin_bar->add_node( $args );
-
-
+	if (is_plugin_active('wp-migrate-db-pro/wp-migrate-db-pro.php')) {
+		$args = array(
+			'parent' => 'ab_dev_tools',
+			'id'     => 'sync_db',
+			'title'  => 'Sync Database',
+			'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db-pro' ) ),
+			'meta'   => false
+		);
+		$admin_bar->add_node( $args );
+	}
+	
 
 	// NOTE: THIS SECTION I WAS TRYING TO DEACTIVATE / ACTIVATE PLUGIN BY LINK AND IT DID NOT WORK BECAUSE IT WOULD SAY LINK EXPIRED
 		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s'), 'action') );
