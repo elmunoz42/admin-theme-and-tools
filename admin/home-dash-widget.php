@@ -45,6 +45,7 @@ $aUsers = get_users([
 // NOTE Lets make these dynamic fields that get populated from settings page.
 function ab_dev_dashboard() {
 	echo '<p>If you need any support please use our ticketing system, it helps us stay organized :-)</p>';
+	echo '<ul><li><a href="https://github.com/elmunoz42/admin-theme-and-tools" target="_blank">Wiki Documentation</a></li></ul>';
 	echo '<ul><li><a href="https://fountaincity.app/" target="_blank">Create a Support Ticket</a></li>';
 	echo '<ul><li><a href="https://fountaincity.host" target="_blank">Manage your Hosting Subscription</a></li>';
 	echo '<ul><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>';
