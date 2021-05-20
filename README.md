@@ -1,10 +1,10 @@
-# Aaadmin Boss - Admin Theme and Tools Plugin #
+# Admin Boss - Admin Theme and Tools Plugin #
 
 ## The purpose of this plugin is to brand the backend and login (a bit), streamline the workflow of wp development and to provide wholistic KPI insights for client and dev (by leveraging Google Data Studio integration) ##
 
 ### Plugin Goals and Description ###
 
-This project is to create a simple but effective Wordpress Plugin that improves administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Finally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and activating/deactivating development plugins.
+Admin Boss is a Wordpress Plugin that improves the website administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Finally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and activating/deactivating development plugins.
 
 ### Objectives: ###
 
