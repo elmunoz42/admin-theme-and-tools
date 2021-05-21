@@ -141,8 +141,8 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	$args = array(
 		'parent' => 'ab_dev_tools',
 		'id'     => 'all-pages',
-		'title'  => 'All Pages',
-		'href'   => esc_url( admin_url( 'edit.php?post_type=page' ) ),
+		'title'  => 'All Pages by Date',
+		'href'   => esc_url( admin_url( 'edit.php?post_type=page&orderby=date&order=desc' ) ),
 		'meta'   => false
 	);
 	$admin_bar->add_node( $args );
@@ -150,8 +150,8 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	$args = array(
 		'parent' => 'ab_dev_tools',
 		'id'     => 'all-posts',
-		'title'  => 'All Posts',
-		'href'   => esc_url( admin_url( 'edit.php?post_type=post' ) ),
+		'title'  => 'All Posts by Date',
+		'href'   => esc_url( admin_url( 'edit.php?post_type=post&orderby=date&order=desc' ) ),
 		'meta'   => false
 	);
 	$admin_bar->add_node( $args );
