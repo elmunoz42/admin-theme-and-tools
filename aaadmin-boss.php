@@ -78,7 +78,7 @@ function ab_options_default() {
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Customized Wordpress Application by Fountain City, Inc (an open source project)',
 		'custom_toolbar' => false,
-		'custom_scheme'  => 'fountain',
+		'custom_scheme'  => 'default',
 		'dashboard_url'  => 'https://datastudio.google.com/'
 	);
 
@@ -194,22 +194,22 @@ function ab_add_links_to_admin_bar($admin_bar) {
 	// Check if BackupBuddy is active and provide the appropriate links
 	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
         
-		$url = admin_url('options-general.php?page=dev-tools');
+		$url = admin_url('tools.php?page=dev-tools');
 	    $args = array(
 	        'parent' => 'ab_dev_tools',
-	        'id'     => 'deactivate_bu_buddy',
-	        'title'  => 'Deactivate BU Buddy',
+	        'id'     => 'deactivate_dev_plugins',
+	        'title'  => 'Deactivate Dev Plugins',
 	        'href'   => esc_url( $url ),
 	        'meta'   => false
 	    );
 			$admin_bar->add_node( $args );
 	} else {
 		
-		$url = admin_url('options-general.php?page=dev-tools');
+		$url = admin_url('tools.php?page=dev-tools');
 		$args = array(
 				'parent' => 'ab_dev_tools',
-				'id'     => 'activate_bu_buddy',
-				'title'  => 'Activate BU Buddy ',
+				'id'     => 'activate_dev_plugins',
+				'title'  => 'Activate Dev Plugins',
 				'href'   => esc_url( $url  ) ,
 				'meta'   => false
 		);
