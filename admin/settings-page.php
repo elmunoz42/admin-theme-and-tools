@@ -23,8 +23,9 @@ function ab_display_settings_page() {
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 		<form action="options.php" method="post">
 
-		 <input type="file" name="logo" />
-         <button class="button wpse-228085-upload">Upload</button>
+		 <!-- <input type="file" name="logo" />
+         <button class="button wpse-228085-upload">Upload</button> -->
+		 <!-- NOTE: Look at this tutorial instead for upload https://webomnizz.com/how-to-use-wordpress-uploader-into-your-theme/-->
 
 			<?php
 
