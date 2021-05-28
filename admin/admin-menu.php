@@ -48,6 +48,14 @@ function ab_add_toplevel_menu() {
 		'aaadmin-boss',
 		'ab_display_settings_page'
 	);
+	add_submenu_page(
+		'options-general.php',
+		'Aaadmin Boss Login Logo',
+		'Login Page Logo',
+		'manage_options',
+		'ab-login-logo',
+		'ab_display_login_logo_page'
+	);
 
 	add_submenu_page(
 		'tools.php',
