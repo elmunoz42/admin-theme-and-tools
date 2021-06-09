@@ -35,11 +35,29 @@ add_action('admin_enqueue_scripts', 'ab_options_enqueue_scripts');
 
 function ab_display_login_logo_page() {
    
+
+    // Option B 
+
+?> 
+<!-- https://artisansweb.net/upload-files-programmatically-wordpress/ -->
+<h2>Upload a File</h2>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required />
+    <input type="submit" name="upload_file" value="Upload" />
+</form>
+
+<?php
+    // End Option B
+
+
     // check if user is allowed access
 	if ( ! current_user_can( 'manage_options' ) ) return;
 
    $abOption = get_option("ab_login_logo"); 
    ?>
+
+
+   <!-- Option A -->
     <form id="form-options" action="" type="post" enctype="multipart/form-data">
     <table>
         <tr>
@@ -81,5 +99,18 @@ function ab_display_login_logo_page() {
     // Save to database NOT WORKING
     if( isset($_POST['submit']) ) update_option("ab_login_logo", $_POST['logo']);
 }
+
+?>
+
+
+
+<?php
+function fn_upload_file() {
+    if ( isset($_POST['upload_file']) ) {
+        $upload = wp_upload_bits($_FILES['file']['name'], null, $_FILES['file']['tmp_name']);
+        // save into database $upload['url]
+    }
+}
+add_action('init', 'fn_upload_file');
 
  
