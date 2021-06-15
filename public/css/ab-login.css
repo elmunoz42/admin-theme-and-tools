@@ -11,9 +11,4 @@ body.login { background-color: #2a3db6; color: #00ffd5;}
 }
 body.login div#login form#loginform { border-radius: 10px; color:  #2a3db6;}
 body.login .custom-message { text-align: center; }
-.login h1 a {
-  background-image: url("../assets/login-screen-logo.png");
-  width: 300px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+

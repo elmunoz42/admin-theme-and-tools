@@ -111,6 +111,62 @@ function ab_load_the_right_style_when_wp_loaded(){
   }
 }
 
+// Login logo css
+
+function ab_custom_login_logo()
+{   
+	if (get_option("ab_login_logo") && get_option("ab_options")['custom_style'] == 'enable') {
+	$logo_url = get_option("ab_login_logo");
+	echo '<style  type="text/css"> 
+			.login h1 a {
+			background-image: url(' . $logo_url . ');
+			width: 300px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			} 
+		</style>';
+	} elseif ( !get_option("ab_login_logo") && get_option("ab_options")['custom_style'] == 'enable'){
+		echo '<style  type="text/css"> 
+			.login h1 a {
+				background-image: url("/wp-content/plugins/aaadmin-boss/public/assets/login-screen-logo.png");
+				width: 300px;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+		</style>';
+	}
+}
+add_action('login_head',  'ab_custom_login_logo');
+
+// if (get_option("ab_login_logo")) {
+	// $logo_url = get_option("ab_login_logo");
+	// wp_enqueue_style('login_enqueue_scripts', '<style>
+	// .login h1 a {
+	// 	background-image: url(' . $logo_url . ');
+	// 	width: 300px;
+	// 	background-size: contain;
+	// 	background-repeat: no-repeat;
+	// }
+	// </style>'
+	// );
+	
+
+// } else {
+// 	var_dump('no work!');
+// 	?>
+	<!-- <style> 
+	.login h1 a {
+		background-image: url("../assets/login-screen-logo.png");
+		width: 300px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+ 	</style> -->
+	 <?php
+// }
+
+
+
 // **********************************
 
 // Debugging Functions and Alerts

@@ -21,11 +21,12 @@ function ab_display_settings_page() {
 
 	<div class="wrap">
 		<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
-		<form action="options.php" method="post">
+		 <br><br>
 
-		 <!-- <input type="file" name="logo" />
-         <button class="button wpse-228085-upload">Upload</button> -->
-		 <!-- NOTE: Look at this tutorial instead for upload https://webomnizz.com/how-to-use-wordpress-uploader-into-your-theme/-->
+		<a href="http://aaadmin-boss-wp/wp-admin/options-general.php?page=ab-login-logo" target="_blank"><button>Add custom login logo</button></a>
+		<p>NOTE: This will only be enabled if you also enable the custom login page style</p>
+		<form action="options.php" method="post">
+         <br><br>
 
 			<?php
 
