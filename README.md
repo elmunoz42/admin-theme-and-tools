@@ -10,7 +10,7 @@ Admin Boss is a Wordpress Plugin that improves the website administrator's quali
 
 | Status       | Description   |Note    |
 | ------------- |:-------------|:-------|
-|In Progress|A settings page per plugin dev tutorial adding field for GDS dashboard link for embed|Needs upload login logo functionality|
+|QA|A settings page with options to customize the login page and the admin styles as well as GDS dashboard|Upload login functionality was just added!|
 |QA|Page for Google Data Studio dashboard|Need to look into what we want it to do when someone doesn't yet have a dashboard.|
 |In Progress|Style login page with logo option, unfortunately tutorial shows how to customize the logo url but not the logo itself. See from awakenings project|Need to make to figure out a solution for uploading the logo and displaying it programmatically.|
 |In Progress|Add menu links to media library, Backupbuddy, Litespeed, WP Migrate DB, Query Monitor, GDS dashboard, and plugins page.|Need to Make the links conditional on the active status of those plugins and the whole shortcut menu should only appear for admins.|
