@@ -21,6 +21,9 @@ if($abOption === FALSE) {
 // Uploads file to the library view this tutorial: https://www.davidangulo.xyz/how-to-upload-files-in-wordpress-programmatically/
 function ab_display_login_logo_page() {
 
+  // check if user is allowed access
+	if ( ! current_user_can( 'manage_options' ) ) return;
+
   if (isset($_POST['submit'])) {
     $upload_object = wp_upload_bits($_FILES['fileToUpload']['name'], null, file_get_contents($_FILES['fileToUpload']['tmp_name']));
     // var_dump($upload_object["url"]);
