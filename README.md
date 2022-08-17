@@ -6,6 +6,10 @@
 
 Admin Boss is a Wordpress Plugin that improves the website administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Additionally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and activating/deactivating development plugins. Finally, it allows you to do some simple branding of the login page. (This feature can be turned on or off).
 
+### PLEASE READ ### 
+
+If you are adding this plugin to an installation that is tracking with git I would recommend DELETING THE .git FOLDER FOR THIS PLUGIN AFTER CLONING or ADDING THE PLUGIN TO BE IGNORED IN .gitignore file of the project.
+
 ### Objectives: ###
 
 | Status       | Description   |Note    |
