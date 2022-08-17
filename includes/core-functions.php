@@ -302,3 +302,7 @@ add_action('admin_enqueue_scripts', function(){
     */
     wp_enqueue_media();
 });
+
+function ab_before_cache_link($current_url){
+    return $current_url . '?LSCWP_CTRL=before_optm';
+}

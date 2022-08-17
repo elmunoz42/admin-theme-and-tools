@@ -56,10 +56,7 @@ if ( is_admin() ) {
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
-	require_once plugin_dir_path( __FILE__ ) . 'admin/home-dash-widget.php';
-	require_once plugin_dir_path( __FILE__ ) . 'admin/dev-tools-page.php';
 	require_once plugin_dir_path( __FILE__ ) . 'admin/login-logo-page.php';
-	// require_once plugin_dir_path( __FILE__ ) . 'admin/logged-in-users-alert.php'; NOTE moving this to dashboard widget
 
 }
 
@@ -73,14 +70,14 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/core-functions.php';
 function ab_options_default() {
 
 	return array(
-		'custom_url'     => 'https://fountaincity.tech/wp-content/uploads/2018/10/fauntain-city-logo.png',
+		'custom_url'     => 'https://fountaincity.tech/',
 		'custom_title'   => 'Customized Wordpress Application',
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Customized Wordpress Application by Fountain City, Inc (an open source project)',
 		'custom_toolbar' => false,
 		'custom_scheme'  => 'default',
-		'dashboard_url'  => 'https://datastudio.google.com/'
+		'dashboard_url'  => 'https://datastudio.google.com/u/0/reporting/1ea2f974-80d3-443f-b205-5316716a13d3/page/p_sporg6bdwc/preview'
 	);
 
 }
@@ -138,43 +135,12 @@ function ab_custom_login_logo()
 }
 add_action('login_head',  'ab_custom_login_logo');
 
-// if (get_option("ab_login_logo")) {
-	// $logo_url = get_option("ab_login_logo");
-	// wp_enqueue_style('login_enqueue_scripts', '<style>
-	// .login h1 a {
-	// 	background-image: url(' . $logo_url . ');
-	// 	width: 300px;
-	// 	background-size: contain;
-	// 	background-repeat: no-repeat;
-	// }
-	// </style>'
-	// );
-	
-
-// } else {
-// 	var_dump('no work!');
-// 	?>
-	<!-- <style> 
-	.login h1 a {
-		background-image: url("../assets/login-screen-logo.png");
-		width: 300px;
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
- 	</style> -->
-	 <?php
-// }
-
-
-
 // **********************************
 
 // Debugging Functions and Alerts
 function ab_alert($output){
 	echo "<script type='text/javascript'>alert('" . $output . "');</script>";
 }
-
-
 
 // Creates FC Dev Tools admin bar Tab
 add_action( 'admin_bar_menu', 'ab_add_links_to_admin_bar',999 );
@@ -241,185 +207,36 @@ function ab_add_links_to_admin_bar($admin_bar) {
 		);
 		$admin_bar->add_node( $args );
 	}
-	
-
-	// NOTE: THIS SECTION I WAS TRYING TO DEACTIVATE / ACTIVATE PLUGIN BY LINK AND IT DID NOT WORK BECAUSE IT WOULD SAY LINK EXPIRED
-		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s'), 'action') );
-		// $url = (wp_nonce_url(admin_url('plugins.php?action=deactivate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce1');
-        // $url = wp_nonce_url(admin_url('plugins.php?action=activate&plugin=backupbuddy%2Fbackupbuddy.php&plugin_status=all&paged=1&s&' ), 'activate_bu_buddy', 'my_nonce2');
-
-	// Check if BackupBuddy is active and provide the appropriate links
-	if (is_plugin_active('backupbuddy/backupbuddy.php')) {
-        
-		$url = admin_url('tools.php?page=dev-tools');
-	    $args = array(
-	        'parent' => 'ab_dev_tools',
-	        'id'     => 'deactivate_dev_plugins',
-	        'title'  => 'Deactivate Dev Plugins',
-	        'href'   => esc_url( $url ),
-	        'meta'   => false
-	    );
-			$admin_bar->add_node( $args );
-	} else {
-		
-		$url = admin_url('tools.php?page=dev-tools');
+	if (is_plugin_active('litespeed-cache/litespeed-cache.php')) {
+		global $wp;
+		$no_cache_url =  ab_before_cache_link( add_query_arg( $wp->query_vars, home_url( $wp->request ) ) );
 		$args = array(
-				'parent' => 'ab_dev_tools',
-				'id'     => 'activate_dev_plugins',
-				'title'  => 'Activate Dev Plugins',
-				'href'   => esc_url( $url  ) ,
-				'meta'   => false
+			'parent' => 'ab_dev_tools',
+			'id'     => 'no_cache',
+			'title'  => 'Reload Page wo/ Cache',
+			'href'   => esc_url( $no_cache_url ),
+			'meta'   => false
 		);
 		$admin_bar->add_node( $args );
 	}
-	
-	
-	
-
-
-	// Check if WP Migrate DB Pro is active and provide the appropriate links
-	// if (is_plugin_active('wp-migrate-db-pro/wp-migrate-db-pro.php')) {
-	//
-	//     $args = array(
-	//         'parent' => 'ab_dev_tools',
-	//         'id'     => 'deactivate_wp-migrate-db-pro',
-	//         'title'  => 'Deactivate WP Migrate DB Pro',
-	//         'href'   => esc_url( admin_url( 'plugins.php?action=deactivate&plugin=wp-migrate-db-pro%2Fwp-migrate-db-pro.php&plugin_status=all&paged=1&s&_wpnonce=' . esc_attr( $nonce ) ) ),
-	//         'meta'   => false
-	//     );
-	// 		$admin_bar->add_node( $args );
-	// } else {
-	// 	$args = array(
-	// 			'parent' => 'ab_dev_tools',
-	// 			'id'     => 'activate_wp-migrate-db-pro',
-	// 			'title'  => 'Activate WP Migrate DB Pro',
-	// 			'href'   => esc_url( admin_url( 'plugins.php?action=activate&plugin=wp-migrate-db-pro%2Fwp-migrate-db-pro.php&plugin_status=all&paged=1&s&_wpnonce=' . esc_attr( $nonce )  ) ),
-	// 			'meta'   => false
-	// 	);
-	// 	$admin_bar->add_node( $args );
-	// }
-
 }
 
+// ADD CLASS TO BODY OF ALL PAGES FOR CUSTOM STYLES IF ADD 'fc_body_class' AS A CUSTOM FIELD TO THE PAGE or POST
+add_filter( 'body_class', 'ab_body_class' );
+/**
+ * Add custom field body class(es) to the body classes.
+ *
+ * It accepts values from a per-page custom field, and only outputs when viewing a singular static Page.
+ *
+ * @param array $classes Existing body classes.
+ * @return array Amended body classes.
+ */
+function ab_body_class( array $classes ) {
+	$new_class = is_page() ? get_post_meta( get_the_ID(), 'fc_body_class', true ) : null;
 
-
-
-
-// // Creates Dashboard Widget
-// // NOTE: Add additional links as desired
-// add_action('wp_dashboard_setup', 'ab_dashboard_widgets');
-// function ab_dashboard_widgets() {
-// 	global $wp_meta_boxes;
-
-// 	wp_add_dashboard_widget('ab_dev_dashboard', 'Fountain City Support and Resources ', 'ab_dev_dashboard');
-// }
-
-
-// function ab_logged_in_users_report() {
-
-
-// $aUsers = get_users([
-// 	'meta_key' => 'session_tokens',
-// 	'meta_compare' => 'EXISTS'
-// 	]);
-
-
-// 	echo sprintf(
-// 	'Users online: %s',
-// 	implode(', ', array_map(function($oUser){
-// 	$aCurrentSessions = get_user_meta($oUser->ID, 'session_tokens', true);
-// 	return '<span class="username">' . $oUser->display_name.'</span> (' .
-// 			implode('; ', array_map(function($aSession) {
-// 					return $aSession['ip']; // only return the session ips
-// 			}, $aCurrentSessions)) . ')';
-// 	}, $aUsers))
-// 	);
-// }
-
-// // NOTE Lets make these dynamic fields that get populated from settings page.
-// function ab_dev_dashboard() {
-// 	echo '<p>If you need any support please use our ticketing system, it helps us stay organized :-)</p>';
-// 	echo '<ul><li><a href="https://fountaincity.app/" target="_blank">Create a Support Ticket</a></li>';
-// 	echo '<ul><li><a href="https://fountaincity.host" target="_blank">Manage your Hosting Subscription</a></li>';
-// 	echo '<ul><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>';
-// 	echo '<ul><li><a href="https://drive.google.com" target="_blank">Google Drive</a></li></ul>';
-// 	ab_logged_in_users_report();
-
-// }
-
-
-// Auto activate plugins
-add_action('init','ab_activate_development_plugins');
-function ab_activate_development_plugins(){
-
-	$current_user = wp_get_current_user();
-
-	// set_transient( 'ab_dev_is_logged_in' , 0 , HOUR_IN_SECONDS ); // NOTE TEMPORARY FOR TESTING
-	$ab_dev_is_logged_in = (get_transient('ab_dev_is_logged_in')) ? 1 : 0;
-
-	$backup_buddy = ABSPATH."wp-content/plugins/backupbuddy/backupbuddy.php";
-	$wp_migrate_db_pro = ABSPATH."wp-content/plugins/wp-migrate-db-pro/wp-migrate-db-pro.php";
-	$query_monitor = ABSPATH."wp-content/plugins/query-monitor/query-monitor.php";
-	// If the current user is an administrator, and the ab_dev_is_logged_in transient hasn't yet been set to true
-	if (current_user_can('administrator') && $ab_dev_is_logged_in == 0){
-		// If one of our devs is the current user
-		if ($current_user->user_login == 'sebastian' || $current_user->user_login == 'will' || $current_user->user_login == 'carlos' || $current_user->user_login == 'carlos.mk' || $current_user->user_login == 'gray') {
-
-			set_transient( 'ab_dev_is_logged_in' , 1 , HOUR_IN_SECONDS );
-			$ab_dev_is_logged_in == 1;  // Not sure why I had to do this. Plugins were deactivating on refresh when I didn't ??
-			$message = 'The below development plugin(s) have been activated by fc dev tools:\n';
-			if (!file_exists($backup_buddy)&&!file_exists ($wp_migrate_db_pro)&&!file_exists ($query_monitor)) {
-				$message = 'BackupBuddy, Wp Migrate DB Pro and Query Monitor are not installed.';
-			}
-			if (file_exists ($backup_buddy)) {
-				activate_plugin( $backup_buddy );
-
-				$message .= 'BackupBuddy\n';
-			}
-			if (file_exists ($wp_migrate_db_pro)) {
-				activate_plugin( $wp_migrate_db_pro );
-				$message .= 'WP Migrate DB Pro\n';
-			}
-			if (file_exists ($query_monitor)) {
-				activate_plugin( $query_monitor );
-				$message .= 'Query Monitor\n';
-			}
-			ab_alert($message);
-		}
+	if ( $new_class ) {
+		$classes[] = $new_class;
 	}
-}
 
-// NOTE troubleshooting
-// ab_alert(get_transient('ab_dev_is_logged_in'));
-
-// Auto deactivate plugins
-add_action('init','ab_deactivate_development_plugins');
-function ab_deactivate_development_plugins(){
-	$current_user = wp_get_current_user();
-
-	// set_transient( 'ab_dev_is_logged_in' , 1 , HOUR_IN_SECONDS ); // NOTE TEMPORARY FOR TESTING
-	$ab_dev_is_logged_in = (get_transient('ab_dev_is_logged_in')) ? 1 : 0;
-	// ab_alert($ab_dev_is_logged_in);
-
-	// If the ab_dev_is_logged_in transient is still 1 ...
-	if($ab_dev_is_logged_in == 1){
-		// ... and neither Sebastian, Will, Carlos or Gray are logged in, deactivate the plugins. This should only be true for an instant.
-		if ($current_user->user_login != 'sebastian' && $current_user->user_login != 'will' && $current_user->user_login != 'carlos' && $current_user->user_login != 'carlos.mk' && $current_user->user_login != 'gray'){
-			$backup_buddy = ABSPATH."wp-content/plugins/backupbuddy/backupbuddy.php";
-			$wp_migrate_db_pro = ABSPATH."wp-content/plugins/wp-migrate-db-pro/wp-migrate-db-pro.php";
-			$query_monitor = ABSPATH."wp-content/plugins/query-monitor/query-monitor.php";
-
-			set_transient( 'ab_dev_is_logged_in' , 0 , HOUR_IN_SECONDS );
-			if (file_exists ($backup_buddy)) {
-				deactivate_plugins( $backup_buddy );
-			}
-			if (file_exists ($wp_migrate_db_pro)) {
-				deactivate_plugins( $wp_migrate_db_pro );
-			}
-			if (file_exists ($query_monitor)) {
-				deactivate_plugins( $query_monitor );
-			}
-			ab_alert('plugins_deactivated');
-		}
-	}
+	return $classes;
 }

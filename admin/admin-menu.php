@@ -57,14 +57,6 @@ function ab_add_toplevel_menu() {
 		'ab_display_login_logo_page'
 	);
 
-	add_submenu_page(
-		'tools.php',
-		'Toggle Dev Tools',
-		'Toggle Dev Tools',
-		'manage_options',
-		'dev-tools',
-		'ab_display_dev_tools'
-	);
 }
 add_action( 'admin_menu', 'ab_add_toplevel_menu' );
 
