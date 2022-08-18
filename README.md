@@ -4,11 +4,22 @@
 
 ### Plugin Goals and Description ###
 
-Admin Boss is a Wordpress Plugin that improves the website administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Additionally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and activating/deactivating development plugins. Finally, it allows you to do some simple branding of the login page. (This feature can be turned on or off).
+Admin Boss is a Wordpress Plugin that improves the website administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Additionally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and reloading a page without cache. Finally, it allows you to do some simple branding of the login page. (This feature can be turned on or off).
 
 ### PLEASE READ ### 
 
-If you are adding this plugin to an installation that is tracking with git I would recommend DELETING THE .git FOLDER FOR THIS PLUGIN AFTER CLONING or ADDING THE PLUGIN TO BE IGNORED IN .gitignore file of the project.
+If you are adding this plugin by cloning with git into the plugins folder to an installation that is tracking with git already I would recommend DELETING THE .git FOLDER FOR THIS PLUGIN AFTER CLONING or ADDING THE PLUGIN TO BE IGNORED IN .gitignore FILE IN THE PROJECT. Alternatively you can experiment with submodules... and then tell me how that works :-) 
+
+### USAGE ###
+
+GDS Dashboard - the plugin adds a link to a GDS dashboard you can set the correct one from the settings page. You'll need to be logged into the the correct Google account to see this.
+
+Shortcuts - There are some handy dev shortcuts including reload page without cache. These are in the top bar.
+
+Custom Body Class - Add a class to the pages' body with a custom field set in that page. All you have to do is add a custom field for the post they key is "fc_body_class" and the value is the selector that you want "example-page-123".
+
+Custom Login Page - If enabled you can customize the login page.
+
 
 ### Objectives: ###
 

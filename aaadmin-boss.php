@@ -31,21 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-// Add custom color scheme
-function additional_admin_color_schemes() {
-  //Get the theme directory
-  // $theme_dir = get_template_directory_uri();
-	//
-  // //Ocean
-	$plugin_dir = plugin_dir_url( dirname( __FILE__ ) ) ;
-  wp_admin_css_color( 'fountain', __( 'Fountain' ),
-    $plugin_dir . 'aaadmin-boss/public/css/colors.css',
-    array( '#2a3db6', '#00ffd5', '#00e6c0', '#313541' )
-  );
-  // var_dump($plugin_dir . 'aaadmin-boss/public/css/colors.css');die;
-}
-add_action('admin_init', 'additional_admin_color_schemes');
-
 
 // include plugin dependencies: admin only
 if ( is_admin() ) {
@@ -73,7 +58,7 @@ function ab_options_default() {
 		'custom_url'     => 'https://fountaincity.tech/',
 		'custom_title'   => 'Customized Wordpress Application',
 		'custom_style'   => 'disable',
-		'custom_message' => '<p class="custom-message">My custom message</p>',
+		'custom_message' => '',
 		'custom_footer'  => 'Customized Wordpress Application by Fountain City, Inc (an open source project)',
 		'custom_toolbar' => false,
 		'custom_scheme'  => 'default',
