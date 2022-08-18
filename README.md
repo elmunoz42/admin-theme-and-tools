@@ -6,11 +6,7 @@
 
 Admin Boss is a Wordpress Plugin that improves the website administrator's quality of life. The plugin provides common sense backend customizations for the Wordpress backend. For the client and account manager it provides a dashboard with Google Data Studio so that main KPIs are easily visible on the backend. It also provides a dashboard widget with useful project links as well as information about who else is logged in at the time. Additionally, a top bar shortcut menu is made available to expedite important administrative tasks like accessing plugins, pages, posts, creating backups, syncing the database and reloading a page without cache. Finally, it allows you to do some simple branding of the login page. (This feature can be turned on or off).
 
-### PLEASE READ ### 
-
-If you are adding this plugin by cloning with git into the plugins folder to an installation that is tracking with git already I would recommend DELETING THE .git FOLDER FOR THIS PLUGIN AFTER CLONING or ADDING THE PLUGIN TO BE IGNORED IN .gitignore FILE IN THE PROJECT. Alternatively you can experiment with submodules... and then tell me how that works :-) 
-
-### USAGE ###
+### Usage ###
 
 GDS Dashboard - the plugin adds a link to a GDS dashboard you can set the correct one from the settings page. You'll need to be logged into the the correct Google account to see this.
 
@@ -19,6 +15,13 @@ Shortcuts - There are some handy dev shortcuts including reload page without cac
 Custom Body Class - Add a class to the pages' body with a custom field set in that page. All you have to do is add a custom field for the post they key is "fc_body_class" and the value is the selector that you want "example-page-123".
 
 Custom Login Page - If enabled you can customize the login page.
+
+
+### Installation: ###
+
+1 - Download the zip file.
+2 - Upload in the add a plugin page in your Wordpress installation.
+3 - If you are tracking the whole Wordpress site in a repository, you can either have the plugins repo be a submodule (recommended) or delete the .git folder and update it manually (easier but more laboreous).
 
 
 ### Objectives: ###
@@ -42,8 +45,3 @@ Custom Login Page - If enabled you can customize the login page.
 - The admin bar link to activate and deactivate BackupBuddy doesn't work because of the nonce value not being correct. (Compare that link to the deactivate link in the plugins page, you could copy that link exactly which would work for 24 hours until there is a new nonce value. Obviously, that is not the real solution.) In the meantime I've made it so that the link just takes you to the plugins page search for backup buddy so deactivation is one click away. One possible solution is to create an admin page that has the new script to activate plugins saves a transient token and then when you return deactivates the "dev tools" plugins... so "activate dev tools", "deactivate dev tools". And in the settings page you could add the dev tools plugins that you want to be part of this. 
 
 
-### Installation: ###
-
-1 - Download the zip file.
-2 - Upload in the add a plugin page in your Wordpress installation.
-3 - If you are tracking the whole Wordpress site in a repository, you can either have the plugins repo be a submodule (recommended) or delete the .git folder and update it manually (easier but more laboreous).
